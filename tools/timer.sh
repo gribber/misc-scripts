@@ -1,6 +1,10 @@
 #!/bin/bash
 
-FILE=hosts.txt
+if [[ $2 == "" ]]; then
+	FILE=hosts.txt
+else
+	FILE=$2
+fi
 
 START=$(date +%s)
 NUM=`wc -l $FILE | awk '{print $1}'`
@@ -37,4 +41,4 @@ echo
 date
 echo
 echo '-----------------'
-echo "$FIN of $NUM hosts up in $RUNTIME seconds"
+echo "$FIN of $NUM hosts up in $(date +%Mm%ss -d @$RUNTIME) seconds"

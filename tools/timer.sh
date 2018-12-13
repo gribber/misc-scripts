@@ -1,9 +1,16 @@
 #!/bin/bash
 
-if [[ $2 == "" ]]; then
-	FILE=hosts.txt
+if [[ "$1" == "" ]]; then
+	FILE="hosts.txt"
 else
-	FILE=$2
+	FILE=$1
+fi
+
+echo "Parsing hosts from: $FILE"
+if [ ! -e $FILE ]; then
+	echo "error: file does not exist."
+	echo "Usage: timer.sh <file>"
+	exit
 fi
 
 START=$(date +%s)
@@ -41,4 +48,5 @@ echo
 date
 echo
 echo '-----------------'
-echo "$FIN of $NUM hosts up in $(date +%Mm%ss -d @$RUNTIME)"
+RES=$(date +%Mm%ss -d @$RUNTIME)
+echo "$FIN of $NUM hosts up in $RES"

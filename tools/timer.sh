@@ -41,4 +41,4 @@ echo
 date
 echo
 echo '-----------------'
-echo "$FIN of $NUM hosts up in $(date +%Mm%ss -d @$RUNTIME) seconds"
+echo "$FIN of $NUM hosts up in $(date +%Mm%ss -d @$RUNTIME)"
